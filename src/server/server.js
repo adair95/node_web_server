@@ -1,12 +1,15 @@
-const express = require('express')
-const path = require('path')
+import  express  from "express";
+import  path  from "path";
 
-const startServer = (options) => {
+//const express = require('express')
+//const path = require('path') //leer las carpetas de la raiz
+
+export const startServer = (options) => {
     const { port, public_path = 'public' } = options
     
     const app = express()
 
-    //Para poder usar niddlewares se usa la palabra use que es propio de express
+    //Para poder usar middlewares se usa la palabra use que es propio de express
     app.use(express.static(public_path)) //contenido estatico que ponemos disponible para mostrar
 
     app.get('*', (req, res) => { //req = peticion, res = respuesta a esa peticion
@@ -20,6 +23,8 @@ const startServer = (options) => {
     })
 }
 
-module.exports = {
-    startServer
-}
+
+
+// module.exports = {
+//     startServer
+// }
